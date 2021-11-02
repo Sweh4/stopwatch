@@ -1,0 +1,49 @@
+@font-face {
+    font-family: gorditas;
+    src: url(fontovi/Gorditas-Regular.ttf);
+}
+
+body {
+    background-color: #3B945E;
+    font-family: gorditas, sans-serif;
+}
+
+.stoperica {
+    color: white;
+    text-align: center;
+    width:1000px;
+    margin: 200px auto;    
+}
+
+h1, h2, p {
+    font-size: 32px;
+}
+
+button {
+    margin: 10px;
+    width: 200px;
+    padding: 20px 10px;
+    font-size: 20px;
+
+    border: 2px solid #23633c;
+    box-shadow: 5px 5px 3px #23633c;
+    border-radius: 5px;
+
+    background-color: #57BA98;
+    color: white;
+    font-family: gorditas;
+
+    cursor: pointer;
+}
+
+button:hover {
+    transition: all 0.2s ease-in;
+    background-color: #185730;
+    border: solid 2px #0c301a;
+    box-shadow: 5px 5px 3px black;
+    color: white;
+}
+
+#stoperica2 {
+    font-size: 32px;
+}
