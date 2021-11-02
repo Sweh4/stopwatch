@@ -1,6 +1,7 @@
 <html>
     <head>
         <link href="stopwatch_css.css" rel="stylesheet">
+        
     </head>
 
     <body>
@@ -8,12 +9,16 @@
             <h1>Stoperica</h1>
             <h2>Use the buttons below to controll the stopwatch.</h2>
 
-            <p><span id="minute">00</span>:<span id="sekunde">00</span></p>
+            <div id="stoperica2">
+                00:00:00
+            </div>
 
-            <button id="start_b">Start</button>
-            <button id="restart_b">Restart</button>
-            <button id="stop_b">Stop</button>
-
+            <button onclick="startTimer()">Start</button>
+            <button onclick="stopTimer()">Stop</button>
+            <br>
+            <button onclick="resetTimer()">Reset</button>
+           
+            <script src="stopwatch_js.js"></script>
         </div>
     </body>
 </html>

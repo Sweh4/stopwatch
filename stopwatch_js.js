@@ -1,56 +1,76 @@
-window.onload = function () {
+const timer = document.getElementById('stoperica2');
 
-var sekunde, minute, iSekunde, iMinute, start_b, stop_b, restart_b;
+var sat, minuta, sekunda;
 
-sekunde = 00;
-minute = 00;
+sat = 0;
+minuta = 0;  
+sekunda = 0;
+var stopVrijeme = true;
 
-iSekunde = document.getElementById("sekunde");
-iMinute = document.getElementById("minute");
-
-start_b = document.getElementById('start_b');
-stop_b = document.getElementById('stop_b');
-restart_b = document.getElementById('restart_b');
-
-var interval;
-
-    start_b.onclick = function () {
-        interval = setInterval(startTimer, 10);
+function startTimer () {
+    if (stopVrijeme == true) {
+        stopVrijeme = false;
+        tokVremena ();
     }
+}
 
-    stop_b.onclick = function () {
-        interval = setInterval(interval);
+function stopTimer () {
+    if (stopVrijeme == false) {
+        stopVrijeme = true;
     }
+}
 
-    restart_b.onclick = function () {
-        clearInterval(interval);
-            sekunde = "00";
-            minute = "00";
-            iSekunde.innerHtml = sekunde;
-            iMinute.innerHtml = minute;
+function tokVremena () {
+    if (stopVrijeme == false) {
+        sekunda = parseInt(sekunda);
+        minuta = parseInt(minuta);
+        sat = parseInt(sat);
+
+        sekunda = sekunda + 1;
+
+        if (sekunda == 60) {
+            minuta = minuta + 1;
+            sekunda = 0;
+        }
+
+        if (minuta == 60) {
+            sat = sat + 1; 
+            minuta = 0;
+            sekunda = 0;
+        }
+
+        if (sekunda < 10 || sekunda == 0) {
+            sekunda = '0' + sekunda;
+        }
+
+        if (minuta < 10 || minuta == 0) {
+            minuta = '0' + minuta;
+        }
+
+        if (sat < 10 || sat == 0) {
+            sat = '0' + sat;
+        }
+
+        timer.innerHTML = sat + ':' + minuta + ':' + sekunda;
+
+        setTimeout("tokVremena()", 1000);
     }
+}
 
-    function startStoperica () {
-        minute ++;
+function resetTimer() {
+    timer.innerHTML = '00:00:00';
 
-        if (minute <= 9) {
-            iMinute.innerHtml = "0" + minute;
-        }
+    stopVrijeme = true;
+    sat = 0;
+    minuta = 0;
+    sekunda = 0;
+}
 
-        if (minute > 9) {
-            iMinute.innerHtml = minute;
-        }
-
-        if (minute > 99) {
-            console.log("sekunde");
-
-            sekunde ++;
-            iSekunde.innerHtml = "0" + sekunde;
-            minute = 0;
-        }
-
-        if (sekunde > 9) {
-            iSekunde.innerHtml = sekunde;
-        }
+function stopTimer () {
+    if (stopVrijeme == true) {
+        sekunda = parseInt(sekunda);
+        minuta = parseInt(minuta);
+        sat = parseInt(sat);
+        
     }
 }
